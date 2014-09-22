@@ -1,11 +1,15 @@
-<h1>how to use  this thing?</h1>
-<ul>
-<li>make a wu account</li>
-<li>get a wu key, copy and paste it into the weather.rb script</li>
-<li>take note of the PS1 statement in the supplied .bashrc, thats what displays your weather</li>
-<li>make a chronjob every 30 minutes in order to get current weather by doing the following: </br>
-$ chrontab -e</br>
-0,30 * * * * your command goes here
-</li>
-</ul>
+welcome to ruby-weather
+=======================
+
+dependancy list
+---------------
+
++ gem install json
++ Weather Underground API Key (free is fine)
++ WU api key stored in ~/.keys/master_key
+    - export WU="your_wu_key"
++ the following two statements in your PS1 prompt
+    - $( cat ~/code/ruby/ruby-weather/temp.md ) $( ~/code/ruby/ruby-weather/shell-weather.sh > file.log
+    - be sure to surround PS1 with a single quote (')
+
 by Zackn9ne
