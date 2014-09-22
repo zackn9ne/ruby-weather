@@ -7,8 +7,8 @@ require 'ostruct'
 require "active_support/core_ext/hash"
 require 'whenever'
 
-require_relative 'lib/forecast'
-require_relative 'lib/weather'
+#require_relative 'lib/forecast'
+#require_relative 'lib/weather'
 
 def welcome_notice
     puts "hello man welcome to ruby weather \nget a API key from weather underground and\nset your system env variable to 'BK' and or 'NY'\nvariable(s) will be printed below as a check:"
