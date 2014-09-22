@@ -1,0 +1,349 @@
+
+{
+  "response": {
+  "version":"0.1",
+  "termsofService":"http://www.wunderground.com/weather/api/d/terms.html",
+  "features": {
+  "geolookup": 1
+  ,
+  "conditions": 1
+  }
+	}
+		,	"location": {
+		"type":"CITY",
+		"country":"US",
+		"country_iso3166":"US",
+		"country_name":"USA",
+		"state":"NY",
+		"city":"Manhattan",
+		"tz_short":"EDT",
+		"tz_long":"America/New_York",
+		"lat":"40.75013351",
+		"lon":"-73.99700928",
+		"zip":"10001",
+		"magic":"2",
+		"wmo":"99999",
+		"l":"/q/zmw:10001.2.99999",
+		"requesturl":"US/NY/Manhattan.html",
+		"wuiurl":"http://www.wunderground.com/US/NY/Manhattan.html",
+		"nearby_weather_stations": {
+		"airport": {
+		"station": [
+		{ "city":"Central Park", "state":"NY", "country":"US", "icao":"KNYC", "lat":"40.77899933", "lon":"-73.96924591" }
+		,{ "city":"New York Downtown Manhattan/w", "state":"NY", "country":"US", "icao":"KJRB", "lat":"40.70121384", "lon":"-74.00902557" }
+		,{ "city":"New York", "state":"NY", "country":"US", "icao":"KLGA", "lat":"40.77944565", "lon":"-73.88027191" }
+		,{ "city":"Teterboro", "state":"NJ", "country":"US", "icao":"KTEB", "lat":"40.85899353", "lon":"-74.05616760" }
+		]
+		}
+		,
+		"pws": {
+		"station": [
+		{
+		"neighborhood":"Murray Hill",
+		"city":"New York",
+		"state":"NY",
+		"country":"US",
+		"id":"KNYNEWYO71",
+		"lat":40.746399,
+		"lon":-73.981598,
+		"distance_km":1,
+		"distance_mi":0
+		},
+		{
+		"neighborhood":"Midtown East",
+		"city":"New York",
+		"state":"NY",
+		"country":"US",
+		"id":"KNYNEWYO91",
+		"lat":40.752632,
+		"lon":-73.979225,
+		"distance_km":1,
+		"distance_mi":0
+		},
+		{
+		"neighborhood":"WCBS TELEVISION",
+		"city":"New York",
+		"state":"NY",
+		"country":"US",
+		"id":"KNYNEWYO85",
+		"lat":40.769104,
+		"lon":-73.989792,
+		"distance_km":2,
+		"distance_mi":1
+		},
+		{
+		"neighborhood":"Sutton East",
+		"city":"New York",
+		"state":"NY",
+		"country":"US",
+		"id":"KNYNEWYO68",
+		"lat":40.755226,
+		"lon":-73.966812,
+		"distance_km":2,
+		"distance_mi":1
+		},
+		{
+		"neighborhood":"Williamsburg",
+		"city":"Brooklyn",
+		"state":"NY",
+		"country":"US",
+		"id":"KNYBROOK40",
+		"lat":40.717094,
+		"lon":-73.962532,
+		"distance_km":4,
+		"distance_mi":2
+		},
+		{
+		"neighborhood":"Greenpoint",
+		"city":"Brooklyn",
+		"state":"NY",
+		"country":"US",
+		"id":"KNYBROOK53",
+		"lat":40.725979,
+		"lon":-73.950783,
+		"distance_km":4,
+		"distance_mi":2
+		},
+		{
+		"neighborhood":"upper west side",
+		"city":"New York",
+		"state":"NY",
+		"country":"US",
+		"id":"KNYNEWYO99",
+		"lat":40.790546,
+		"lon":-73.971184,
+		"distance_km":4,
+		"distance_mi":2
+		},
+		{
+		"neighborhood":"Upper West Side",
+		"city":"New York",
+		"state":"NY",
+		"country":"US",
+		"id":"KNYNEWYO92",
+		"lat":40.791683,
+		"lon":-73.970772,
+		"distance_km":5,
+		"distance_mi":3
+		},
+		{
+		"neighborhood":"Williamsburg",
+		"city":"Brooklyn",
+		"state":"NY",
+		"country":"US",
+		"id":"KNYBROOK51",
+		"lat":40.713715,
+		"lon":-73.947975,
+		"distance_km":5,
+		"distance_mi":3
+		},
+		{
+		"neighborhood":"Cobble Hill",
+		"city":"New York",
+		"state":"NY",
+		"country":"US",
+		"id":"KNYNEWYO94",
+		"lat":40.689018,
+		"lon":-73.996338,
+		"distance_km":6,
+		"distance_mi":4
+		},
+		{
+		"neighborhood":"Cobble Hill",
+		"city":"New York",
+		"state":"NY",
+		"country":"US",
+		"id":"KNYNEWYO116",
+		"lat":40.687885,
+		"lon":-73.991714,
+		"distance_km":6,
+		"distance_mi":4
+		},
+		{
+		"neighborhood":"Woodside",
+		"city":"Queens",
+		"state":"NY",
+		"country":"US",
+		"id":"KNYQUEEN13",
+		"lat":40.745331,
+		"lon":-73.909790,
+		"distance_km":7,
+		"distance_mi":4
+		},
+		{
+		"neighborhood":"Harmon Cove",
+		"city":"Secaucus",
+		"state":"NJ",
+		"country":"US",
+		"id":"KNJSECAU5",
+		"lat":40.787533,
+		"lon":-74.078766,
+		"distance_km":8,
+		"distance_mi":4
+		},
+		{
+		"neighborhood":"Park Slope",
+		"city":"Brooklyn",
+		"state":"NY",
+		"country":"US",
+		"id":"KNYBROOK59",
+		"lat":40.673935,
+		"lon":-73.977791,
+		"distance_km":8,
+		"distance_mi":5
+		},
+		{
+		"neighborhood":"Bedford-Stuyvesant",
+		"city":"Brooklyn",
+		"state":"NY",
+		"country":"US",
+		"id":"KNYBROOK50",
+		"lat":40.683052,
+		"lon":-73.934715,
+		"distance_km":9,
+		"distance_mi":5
+		},
+		{
+		"neighborhood":"Ridgewood",
+		"city":"NEW YORK",
+		"state":"NY",
+		"country":"US",
+		"id":"KNYNEWYO66",
+		"lat":40.705288,
+		"lon":-73.902756,
+		"distance_km":9,
+		"distance_mi":5
+		},
+		{
+		"neighborhood":"Middle Village Juniper Valley Park",
+		"city":"Queens",
+		"state":"NY",
+		"country":"US",
+		"id":"KNYMIDDL23",
+		"lat":40.720570,
+		"lon":-73.888191,
+		"distance_km":9,
+		"distance_mi":5
+		},
+		{
+		"neighborhood":"South Bronx",
+		"city":"New York",
+		"state":"NY",
+		"country":"US",
+		"id":"KNYNEWYO75",
+		"lat":40.811489,
+		"lon":-73.914230,
+		"distance_km":9,
+		"distance_mi":5
+		},
+		{
+		"neighborhood":"North Arlington EMS",
+		"city":"North Arlington",
+		"state":"NJ",
+		"country":"US",
+		"id":"KNJNORTH7",
+		"lat":40.794338,
+		"lon":-74.119072,
+		"distance_km":11,
+		"distance_mi":6
+		},
+		{
+		"neighborhood":"Rutherford",
+		"city":"Rutherford",
+		"state":"NJ",
+		"country":"US",
+		"id":"KNJRUTHE2",
+		"lat":40.816292,
+		"lon":-74.105652,
+		"distance_km":11,
+		"distance_mi":7
+		}
+		]
+		}
+		}
+	}
+  ,	"current_observation": {
+		"image": {
+		"url":"http://icons.wxug.com/graphics/wu2/logo_130x80.png",
+		"title":"Weather Underground",
+		"link":"http://www.wunderground.com"
+		},
+		"display_location": {
+		"full":"Manhattan, NY",
+		"city":"Manhattan",
+		"state":"NY",
+		"state_name":"New York",
+		"country":"US",
+		"country_iso3166":"US",
+		"zip":"10001",
+		"magic":"2",
+		"wmo":"99999",
+		"latitude":"40.75013351",
+		"longitude":"-73.99700928",
+		"elevation":"17.00000000"
+		},
+		"observation_location": {
+		"full":"Murray Hill, New York, New York",
+		"city":"Murray Hill, New York",
+		"state":"New York",
+		"country":"US",
+		"country_iso3166":"US",
+		"latitude":"40.746399",
+		"longitude":"-73.981598",
+		"elevation":"98 ft"
+		},
+		"estimated": {
+		},
+		"station_id":"KNYNEWYO71",
+		"observation_time":"Last Updated on September 21, 5:32 PM EDT",
+		"observation_time_rfc822":"Sun, 21 Sep 2014 17:32:43 -0400",
+		"observation_epoch":"1411335163",
+		"local_time_rfc822":"Sun, 21 Sep 2014 17:32:46 -0400",
+		"local_epoch":"1411335166",
+		"local_tz_short":"EDT",
+		"local_tz_long":"America/New_York",
+		"local_tz_offset":"-0400",
+		"weather":"Clear",
+		"temperature_string":"74.5 F (23.6 C)",
+		"temp_f":74.5,
+		"temp_c":23.6,
+		"relative_humidity":"80%",
+		"wind_string":"From the SE at 2.0 MPH Gusting to 5.0 MPH",
+		"wind_dir":"SE",
+		"wind_degrees":130,
+		"wind_mph":2.0,
+		"wind_gust_mph":"5.0",
+		"wind_kph":3.2,
+		"wind_gust_kph":"8.0",
+		"pressure_mb":"1004",
+		"pressure_in":"29.65",
+		"pressure_trend":"-",
+		"dewpoint_string":"68 F (20 C)",
+		"dewpoint_f":68,
+		"dewpoint_c":20,
+		"heat_index_string":"NA",
+		"heat_index_f":"NA",
+		"heat_index_c":"NA",
+		"windchill_string":"NA",
+		"windchill_f":"NA",
+		"windchill_c":"NA",
+		"feelslike_string":"74.5 F (23.6 C)",
+		"feelslike_f":"74.5",
+		"feelslike_c":"23.6",
+		"visibility_mi":"7.0",
+		"visibility_km":"11.3",
+		"solarradiation":"--",
+		"UV":"2","precip_1hr_string":"0.00 in ( 0 mm)",
+		"precip_1hr_in":"0.00",
+		"precip_1hr_metric":" 0",
+		"precip_today_string":"0.10 in (3 mm)",
+		"precip_today_in":"0.10",
+		"precip_today_metric":"3",
+		"icon":"clear",
+		"icon_url":"http://icons.wxug.com/i/c/k/clear.gif",
+		"forecast_url":"http://www.wunderground.com/US/NY/Manhattan.html",
+		"history_url":"http://www.wunderground.com/weatherstation/WXDailyHistory.asp?ID=KNYNEWYO71",
+		"ob_url":"http://www.wunderground.com/cgi-bin/findweather/getForecast?query=40.746399,-73.981598",
+		"nowcast":""
+	}
+}
