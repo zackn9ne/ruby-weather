@@ -3,9 +3,7 @@ require 'open-uri'
 require 'json'
 #require 'colorize'
 require 'io/console'
-require 'ostruct'
 require "active_support/core_ext/hash"
-require 'whenever'
 
 #require_relative 'lib/forecast'
 #require_relative 'lib/weather'
