@@ -1,2 +1,2 @@
 #!/bin/bash
-ruby ruby-weather.rb
+ruby ~/code/ruby/ruby-weather/ruby-weather.rb

@@ -1,12 +1,14 @@
+#!/usr/bin/env ruby
+
 require 'rest-client'
 require 'open-uri'
 require 'json'
-#require 'colorize'
-require 'io/console'
 require "active_support/core_ext/hash"
 
-#require_relative 'lib/forecast'
-#require_relative 'lib/weather'
+@@home_path = "#{ENV['HOME']}/"
+@@key = ENV['WU'].to_s
+@@file_path = ".rubyweather/"
+@@app_path = "#{ENV['HOME']}/.rubyweather/"
 
 def welcome_notice
     puts "hello man welcome to ruby weather \nget a API key from weather underground and\nset your system env variable to 'BK' and or 'NY'\nvariable(s) will be printed below as a check:"
@@ -14,47 +16,55 @@ end
 
 class UpdateBklyn
     def key_check
-        @key = ENV['WU'].to_s
         if @key == ''
-            puts "error no file found in ~/.keys/master_key \n consult github.com/zackn9ne to figure out what happened"
+            puts "error no file found in ~/.rubyweather/config \n consult github.com/zackn9ne to figure out what happened"
             exit
         elsif
-            puts "MASTER_KEY FOUND! Access granted!"
+            puts "MASTER_KEY FOUND! Access granted! \n
+            using #{@@key}"
         end
     end
 
     def wipefile(city_name)
-        File.open('#{city_name}.json', 'w') {}
-        puts "file cleaned"
+        @file_name = "#{city_name}.json"
+        @city_datafilename_path = [@@app_path,@file_name].join
+        File.open(@city_datafilename_path, 'w') {}
+        puts "puts ....... \n#{@city_datafilename_path} file cleaned"
     end
 
     def save_file_bk
-        cities = { :BK => "http://api.wunderground.com/api/#{@key}/geolookup/conditions/q/NY/manhattan.json", :NY => "http://api.wunderground.com/api/#{@key}/geolookup/conditions/q/NY/manhattan.json" }
+        cities = { :BK => "http://api.wunderground.com/api/#{@@key}/geolookup/conditions/q/NY/manhattan.json", :NY => "http://api.wunderground.com/api/#{@@key}/geolookup/conditions/q/NY/manhattan.json" }
         #save file
         wipefile("brooklyn")
         url = cities[:BK] 
         link_data = `wget #{url} -O -`
-        @file_contents = File.open('brooklyn.json', 'w')
+        @file_contents = File.open(@city_datafilename_path, 'w')
         @file_contents.write(link_data)
-        puts "data saved to file"
+        puts "data written to #{@city_datafilename_path}"
         @file_contents.close
     end
 
     def read_json_file
-        @file_contents = File.open('brooklyn.json', 'r')
+        @file_contents = File.open(@city_datafilename_path, 'r')
         @json_chunk = JSON.load(@file_contents)  
     end
 
     def parse_json_file
         @temp = @json_chunk['current_observation']['temp_f']
         @wind = @json_chunk['current_observation']['wind_mph']
+        @wind_gust = @json_chunk['current_observation']['wind_gust_mph']
+        @rel = @json_chunk['current_observation']['relative_humidity']
+        @conditions = @json_chunk['current_observation']['weather']
     end
 
     def send_values_to_md_file
         puts @temp
-        file_contents = File.open('temp.md', 'w')
-        file_contents.write(@temp)
-        puts "temp saved to file"
+        puts @wind
+        @info = @temp, @wind, @wind_gust, @rel, @conditions
+        prompt_file = [@@app_path,"temp.md"].join
+        file_contents = File.open(prompt_file, 'w')
+        file_contents.write(@info)
+        puts "temp saved to file: #{prompt_file}"
         file_contents.close
     end
 end
@@ -78,6 +88,7 @@ def forced_update
     puts "forcing update..."
     ub = UpdateBklyn.new
     ub.key_check
+    ub.wipefile("brooklyn")
     ub.save_file_bk
     ub.read_json_file
     ub.parse_json_file
@@ -89,16 +100,11 @@ def reload_bash_mac
     reload
     puts  "reloading bash"
 end
-# hold up... want_to_update
-# runner
 
-#notes
-#look at json file if its too old then redownload and remake the md file
-#- check the json file
-#- download teh json file & make the md file
+# runner
 def auto_update
     #read file
-    modified = File.mtime('brooklyn.json')
+    modified = File.mtime("#{ENV['HOME']}/.rubyweather/brooklyn.json")
     current_time = Time.now
     puts modified
     puts current_time
@@ -111,8 +117,8 @@ def auto_update
         puts "recent data being used"
     end
 end
-
 auto_update
+
 def specific_json_values 
     parse(('temp_f'))
     parse(('relative_humidity'))
@@ -120,6 +126,3 @@ def specific_json_values
     parse(('observation_location'))
     parse(('observation_time'))
 end
-# ----run
-#welcome_notice
-# want_to_update
