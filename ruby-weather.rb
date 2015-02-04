@@ -1,19 +1,19 @@
 #!/usr/bin/env ruby
 
 require 'rest-client'
-require 'open-uri'
+require 'open-uri' #a ruby conterpart
 require 'json'
 #require "active_support/core_ext/hash"
 
 #globals
 @@home_path = "#{ENV['HOME']}/" #=> ~/
-@@key = ENV['WU'].to_s #=> echo $WU
-@@app_path = "#{ENV['HOME']}/.rubyweather/" #=> ~/.rubyweather/
+@@key = ENV['WU'].to_s #=> echo $WU put this in the path
+@@app_path = "#{ENV['HOME']}/.rubyweather/" #=> ~/.masterkeys/
 
 class UpdateBklyn
     def key_check
         if @key == ''
-            puts "error no file found in ~/.rubyweather/config \n consult github.com/zackn9ne to figure out what happened"
+            puts "error no file found in ~/.masterkeys with a variable of $WU\n consult github.com/zackn9ne to figure out what happened"
             exit
 else
         #elsif
