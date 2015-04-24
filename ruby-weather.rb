@@ -48,50 +48,49 @@ else
         @info = [@temp, @wind, @wind_gust, @rel, @conditions].to_s
         puts @info
     end
-
 end
 
 
 
-def forced_update
-    puts "downloading..."
-    ub = UpdateBklyn.new
-    ub.key_check
-    ub.download
-    ub.read_json_file
-    ub.parse_json_file
-    ub.send_values_to_output
-end
+  def forced_update
+      puts "downloading..."
+      ub = UpdateBklyn.new
+      ub.key_check
+      ub.download
+      ub.read_json_file
+      ub.parse_json_file
+      ub.send_values_to_output
+  end
 
-def spit_cached_data
-    puts "running cached..."
-    uc = UpdateBklyn.new
-    uc.key_check
-    #uc.save_file_bk
-    uc.read_json_file
-    uc.parse_json_file
-    uc.send_values_to_output
-end
+  def spit_cached_data
+      puts "running cached..."
+      uc = UpdateBklyn.new
+      uc.key_check
+      #uc.save_file_bk
+      uc.read_json_file
+      uc.parse_json_file
+      uc.send_values_to_output
+  end
 
-# runner
-def auto_update
-    #read file
-    modified = File.mtime("#{@@app_path}brooklyn.json")
-    current_time = Time.now
-    if current_time - modified > 18
-        #puts "your files too old i am making you referesh it"
-        forced_update
-    elsif
-        spit_cached_data
-    end
-end
+  # runner
+  def auto_update
+      #read file
+      modified = File.mtime("#{@@app_path}brooklyn.json")
+      current_time = Time.now
+      if current_time - modified > 18
+          #puts "your files too old i am making you referesh it"
+          forced_update
+      elsif
+          spit_cached_data
+      end
+  end
 auto_update
 
 
-def specific_json_values 
-    parse(('temp_f'))
-    parse(('relative_humidity'))
-    parse(('wind_mph'))
-    parse(('observation_location'))
-    parse(('observation_time'))
-end
+  def specific_json_values 
+      parse(('temp_f'))
+      parse(('relative_humidity'))
+      parse(('wind_mph'))
+      parse(('observation_location'))
+      parse(('observation_time'))
+  end

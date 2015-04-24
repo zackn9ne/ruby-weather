@@ -4,6 +4,7 @@ ruby-weather
 get a weather underground API key and have some fun!
 
 + dependancies
++ gem install rest-client
 + json gem
 + wget
 + weather underground API key http://weatherunderground.com/api (free key is fine)
