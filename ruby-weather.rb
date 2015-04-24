@@ -6,9 +6,9 @@ require 'json'
 #require "active_support/core_ext/hash"
 
 #globals
-@@home_path = "#{ENV['HOME']}/" #=> ~/
-@@key = ENV['WU'].to_s #=> echo $WU put this in the path
-@@app_path = "#{ENV['HOME']}/.rubyweather/" #=> ~/.masterkeys/
+#@@home_path = "#{ENV['HOME']}/" #=> ~/
+#@@key = ENV['WU'].to_s #=> echo $WU put this in the path
+#@@app_path = "#{ENV['HOME']}/.rubyweather/" #=> ~/.masterkeys/
 
 class UpdateBklyn
     def key_check
@@ -23,15 +23,18 @@ else
     end
 
     def download
-        cities = { :BK => "http://api.wunderground.com/api/#{@@key}/geolookup/conditions/q/NY/brooklyn.json", :NY => "http://api.wunderground.com/api/#{@@key}/geolookup/conditions/q/NY/manhattan.json" }
+weather_underground_key = ENV['WU'].to_s 
+app_path = "#{ENV['HOME']}/.rubyweather/"
+        cities = { :BK => "http://api.wunderground.com/api/#{weather_underground_key}/geolookup/conditions/q/NY/brooklyn.json", :NY => "http://api.wunderground.com/api/#{weather_underground_key}/geolookup/conditions/q/NY/manhattan.json" }
         #save file
         url = cities[:BK] 
-        link_data = `wget -q #{url} -O #{@@app_path}brooklyn.json`
+        link_data = `wget -q #{url} -O #{app_path}brooklyn.json`
         link_data
     end
 
     def read_json_file
-        jsonfile = [@@app_path, "brooklyn.json"].join
+app_path = "#{ENV['HOME']}/.rubyweather/"
+        jsonfile = [app_path, "brooklyn.json"].join
         @file_contents = File.open(   jsonfile, 'r') #=> brooklyn.json
         @json_chunk = JSON.load(@file_contents)  
     end
@@ -74,8 +77,9 @@ end
 
   # runner
   def auto_update
+app_path = "#{ENV['HOME']}/.rubyweather/"
       #read file
-      modified = File.mtime("#{@@app_path}brooklyn.json")
+      modified = File.mtime("#{app_path}brooklyn.json")
       current_time = Time.now
       if current_time - modified > 18
           #puts "your files too old i am making you referesh it"
