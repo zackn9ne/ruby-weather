@@ -22,6 +22,14 @@ class UpdateBklyn
     end
 
     def download
+      puts "what is your city? "
+      city = gets
+      city = city.chomp
+
+      puts "what is your state 2LETTER? "
+      state = gets
+      state = state.chomp
+      
         cities = { :BK => "http://api.wunderground.com/api/#{@@key}/geolookup/conditions/q/NY/brooklyn.json", :NY => "http://api.wunderground.com/api/#{@@key}/geolookup/conditions/q/NY/manhattan.json" }
         #save file
         url = cities[:BK] 
@@ -48,6 +56,12 @@ class UpdateBklyn
     def send_values_to_output
         @info = [@temp, @wind, @wind_gust, @rel, @conditions].to_s
         puts @info
+#        spawn({'BLAH' => 'qerty'}, "echo $BLAH")
+        ENV['BLAH'] = 'qwerty'
+#        `echo $BLAH`
+        command = "echo \"export WEATHER='cambriadge #{@info}'\">> ~/.bashrc && source ~/.bashrc"
+        exec command
+        
     end
 
 end
