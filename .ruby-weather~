@@ -1,0 +1,8 @@
+listener:
+  host: 127.0.0.1
+  port: 6502
+machines:
+- name: yoda
+  domain: starwars.com
+- name: kirk
+  domain: startrek.com

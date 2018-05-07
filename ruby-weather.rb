@@ -3,43 +3,50 @@
 require 'rest-client'
 require 'open-uri' #a ruby conterpart
 require 'json'
+require 'pathname' #try killing
+require 'yaml'
 #require "active_support/core_ext/hash"
 
 #globals
 @@home_path = "#{ENV['HOME']}/" 
-@@key = ENV['WU'].to_s #=> echo $WU put this in the path
 @@app_path = "#{ENV['HOME']}/code/ruby-weather/"
 
-class UpdateBklyn
-    def key_check
-        if @key == ''
-            puts "no alias in system for $WU (api-key)"
-            exit
-        elsif
-            puts "MASTER_KEY FOUND! Access granted! \n
-            using #{@@key}"
-        end
-    end
+def checkForConfig
+  fname = ".ruby-weatherrc"
+  if File.exist?(".ruby-weather")
+    puts fname+"exists"
+  else
+    puts "no config file found ending..."
+    abort
+  end
+end
+checkForConfig
+
+class UpdateBklyn # major class here
+  def loadConfigYaml
+    configFile = YAML.load_file('.ruby-weather')
+    configFile = configFile['configFile']
+    @@key =  [configFile["key"]].join
+
+    @city = [configFile["city"]].join
+    @state = [configFile["state"]].join
+    puts "preforming lookup for... #{@@key},#{@city},#{@state}"
+  end
 
     def download
-      puts "what is your city? "
-      city = gets
-      city = city.chomp
-
-      puts "what is your state 2LETTER? "
-      state = gets
-      state = state.chomp
-      
-        cities = { :BK => "http://api.wunderground.com/api/#{@@key}/geolookup/conditions/q/NY/brooklyn.json", :NY => "http://api.wunderground.com/api/#{@@key}/geolookup/conditions/q/NY/manhattan.json" }
+      puts "keys are rad: #{@@key}"
+      puts @@key.class
+        cities = { :constructedURL => "http://api.wunderground.com/api/#{@@key}/geolookup/conditions/q/#{@state}/#{@city}.json" }
         #save file
-        url = cities[:BK] 
+        url = cities[:constructedURL] 
         puts "getting #{url}"
         link_data = `wget -q #{url} -O #{@@app_path}brooklyn.json`
-        puts "running command..."
+        puts "downloading file for offline use ..."
         link_data
     end
 
     def read_json_file
+        puts "reading json file"
         jsonfile = [@@app_path, "brooklyn.json"].join
         @file_contents = File.open(   jsonfile, 'r') #=> brooklyn.json
         @json_chunk = JSON.load(@file_contents)  
@@ -71,7 +78,7 @@ end
 def forced_update
     puts "downloading..."
     ub = UpdateBklyn.new
-    ub.key_check
+    ub.loadConfigYaml
     ub.download
     ub.read_json_file
     ub.parse_json_file
